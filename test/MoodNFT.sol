@@ -8,7 +8,12 @@ contract MoodNFTTest is Test {
     MoodNFT public moodNFT;
 
     function setUp() public {
-        moodNFT = new MoodNFT();
+                string memory angry = vm.readFile("./images/anfry.svg");
+        string memory happy = vm.readFile("./images/happy.svg");
+        string memory neutral = vm.readFile("./images/neutral.svg");
+        string memory sleepy = vm.readFile("./images/sleepy.svg");
+        string memory surprised = vm.readFile("./images/surprised.svg"); 
+        moodNFT = new MoodNFT(angry, happy, neutral, sleepy, surprised);
     }
 
     function test_Increment() public {
