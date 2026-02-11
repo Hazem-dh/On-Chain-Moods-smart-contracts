@@ -5,7 +5,8 @@
 # Remix plugin state folders
 deps/
 states/
-
+out/
+cache/
 # Debug info
 *.dbg.json
 *.tsbuildinfo

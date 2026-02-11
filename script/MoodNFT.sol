@@ -2,17 +2,17 @@
 pragma solidity ^0.8.13;
 
 import {Script} from "forge-std/Script.sol";
-import {Counter} from "../src/Counter.sol";
+import {MoodNFT} from "../src/MoodNFT.sol";
 
-contract CounterScript is Script {
-    Counter public counter;
+contract MoodNFTScript is Script {
+    MoodNFT public moodNFT;
 
     function setUp() public {}
 
     function run() public {
         vm.startBroadcast();
 
-        counter = new Counter();
+        moodNFT = new MoodNFT();
 
         vm.stopBroadcast();
     }
