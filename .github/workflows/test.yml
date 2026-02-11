@@ -26,7 +26,8 @@ jobs:
 
       - name: Install OpenZeppelin Contracts
         run: |
-          forge install OpenZeppelin/openzeppelin-contracts --no-commit
+          forge install OpenZeppelin/openzeppelin-foundry-upgrades
+          forge install OpenZeppelin/openzeppelin-contracts-upgradeable
 
       - name: Generate remappings
         run: forge remappings > remappings.txt
