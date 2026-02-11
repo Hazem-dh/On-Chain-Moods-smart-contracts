@@ -10,12 +10,11 @@ contract MoodNFTScript is Script {
     function setUp() public {}
 
     function run() public {
-        string memory angry = vm.readFile("./images/anfry.svg");
-        string memory happy = vm.readFile("./images/happy.svg");
-        string memory neutral = vm.readFile("./images/neutral.svg");
-        string memory sleepy = vm.readFile("./images/sleepy.svg");
-        string memory surprised = vm.readFile("./images/surprised.svg");
-
+        string memory angry = vm.readFile("./assets/anfry.svg");
+        string memory happy = vm.readFile("./assets/happy.svg");
+        string memory neutral = vm.readFile("./assets/neutral.svg");
+        string memory sleepy = vm.readFile("./assets/sleepy.svg");
+        string memory surprised = vm.readFile("./assets/surprised.svg");
         vm.startBroadcast();
 
         moodNFT = new MoodNFT(angry, happy, neutral, sleepy, surprised);
