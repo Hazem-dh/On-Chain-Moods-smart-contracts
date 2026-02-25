@@ -5,19 +5,18 @@ import {Test} from "forge-std/Test.sol";
 import {MoodNFT} from "../src/MoodNFT.sol";
 
 contract MoodNFTTest is Test {
-    MoodNFT public moodNFT;
+    MoodNFT public moodNft;
 
     function setUp() public {
-        string memory angry = vm.readFile("./assets/angry.svg");
         string memory happy = vm.readFile("./assets/happy.svg");
-        string memory neutral = vm.readFile("./assets/neutral.svg");
-        string memory sleepy = vm.readFile("./assets/sleepy.svg");
-        string memory surprised = vm.readFile("./assets/surprised.svg");
-        moodNFT = new MoodNFT(angry, happy, neutral, sleepy, surprised);
+        string memory sad = vm.readFile("./assets/sad.svg");
+        string memory satisfied = vm.readFile("./assets/sad.svg");
+
+        moodNft = new MoodNFT(sad, satisfied, happy, 0x694AA1769357215DE4FAC081bf1f309aDC325306);
     }
 
     function test_Increment() public {
-        moodNFT.mintMoodNFT(msg.sender);
-        assertEq(moodNFT.balanceOf(msg.sender), 1);
+        moodNft.mint(1000); // 1 ETH = 10^11 USD (i.e., $1,000,000,000,000)
+        assertEq(moodNft.balanceOf(msg.sender), 1);
     }
 }
