@@ -18,8 +18,10 @@ contract MoodNFTTest is Test {
         moodNft = MoodNFT(deployer.run());
     }
 
-    function test_Increment() public {
+    function test_mint() public {
+        vm.prank(msg.sender);
         MoodNFT(moodNft).mint(1000);
         assertEq(MoodNFT(moodNft).balanceOf(msg.sender), 1);
+        
     }
 }
