@@ -9,10 +9,9 @@ contract HelperConfig is Script {
 
     uint8 public constant DECIMALS = 8;
     int256 public constant ETH_USD_PRICE = 2000e8;
-    int256 public constant BTC_USD_PRICE = 1000e8;
 
     struct NetworkConfig {
-        address wethUsdPriceFeed;
+        address ethUsdPriceFeed;
         uint256 deployerKey;
     }
 
@@ -28,14 +27,14 @@ contract HelperConfig is Script {
 
     function getSepoliaEthConfig() public view returns (NetworkConfig memory sepoliaNetworkConfig) {
         sepoliaNetworkConfig = NetworkConfig({
-            wethUsdPriceFeed: 0x694AA1769357215DE4FAC081bf1f309aDC325306, // ETH / USD
+            ethUsdPriceFeed: 0x694AA1769357215DE4FAC081bf1f309aDC325306, // ETH / USD
             deployerKey: vm.envUint("PRIVATE_KEY")
         });
     }
 
     function getOrCreateAnvilEthConfig() public returns (NetworkConfig memory anvilNetworkConfig) {
         // Check to see if we set an active network config
-        if (activeNetworkConfig.wethUsdPriceFeed != address(0)) {
+        if (activeNetworkConfig.ethUsdPriceFeed != address(0)) {
             return activeNetworkConfig;
         }
 
@@ -45,7 +44,7 @@ contract HelperConfig is Script {
         vm.stopBroadcast();
 
         anvilNetworkConfig = NetworkConfig({
-            wethUsdPriceFeed: address(ethUsdPriceFeed), // ETH / USD
+            ethUsdPriceFeed: address(ethUsdPriceFeed), // ETH / USD
             deployerKey: DEFAULT_ANVIL_PRIVATE_KEY
         });
     }

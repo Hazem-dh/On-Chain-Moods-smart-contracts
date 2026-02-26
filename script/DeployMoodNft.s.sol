@@ -2,8 +2,9 @@
 pragma solidity ^0.8.13;
 
 import {Script} from "forge-std/Script.sol";
-import {MoodNFT} from "../src/MoodNFT.sol";
+import {MoodNFT} from "../src/MoodNft.sol";
 import {HelperConfig} from "./HelperConfig.s.sol";
+import {console} from "forge-std/console.sol";
 
 contract DeployMoodNFTScript is Script {
     MoodNFT public moodNft;
@@ -20,6 +21,7 @@ contract DeployMoodNFTScript is Script {
         vm.startBroadcast(deployerKey);
 
         moodNft = new MoodNFT(sad, satisfied, happy, wethUsdPriceFeed);
+
         vm.stopBroadcast();
 
         return address(moodNft);

@@ -31,7 +31,7 @@ contract MoodNFT is ERC721, Ownable {
 
     }
 
-    AggregatorV3Interface private immutable PRICEFEED;
+    AggregatorV3Interface public immutable PRICEFEED;
 
     uint256 private tokenCounter;
 
